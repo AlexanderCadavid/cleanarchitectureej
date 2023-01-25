@@ -8,5 +8,5 @@ public interface IStudentRepository {
 
 	Student saveStudent(Student student);
 
-
+	Student getStudents(Student student);
 }

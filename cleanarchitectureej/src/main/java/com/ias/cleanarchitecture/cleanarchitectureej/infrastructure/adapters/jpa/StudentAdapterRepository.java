@@ -2,24 +2,25 @@ package com.ias.cleanarchitecture.cleanarchitectureej.infrastructure.adapters.jp
 
 import com.ias.cleanarchitecture.cleanarchitectureej.domain.model.gateways.IStudentRepository;
 import com.ias.cleanarchitecture.cleanarchitectureej.domain.model.student.Student;
-import com.ias.cleanarchitecture.cleanarchitectureej.domain.model.student.dto.StudentDTO;
+
 import com.ias.cleanarchitecture.cleanarchitectureej.infrastructure.adapters.jpa.entity.StudentDBO;
 import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Repository;
 
 
-import java.util.List;
-import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-
 public class StudentAdapterRepository implements IStudentRepository {
 	private final IStudentAdapterRepository iStudentAdapterRepository;
 
 	@Override
 	public Student findById(Long id) {
-			return null;
+		StudentDBO studentDBO = StudentDBO.studentDBOformDomain(student);
+		StudentDBO findStudent = iStudentAdapterRepository.findById();
+		Student studentConverted = findStudent.studentDBOToDomain(findStudent);
+		return studentConverted;
 		}
 
 	@Override
@@ -30,6 +31,11 @@ public class StudentAdapterRepository implements IStudentRepository {
 //		Optional<StudentDBO> aaa = iStudentAdapterRepository.findById(student.getId().getValue());
 //		aaa.isPresent() return
 		return studentConverted;
+	}
+
+	@Override
+	public Student getStudents(Student student) {
+		return null;
 	}
 
 }
