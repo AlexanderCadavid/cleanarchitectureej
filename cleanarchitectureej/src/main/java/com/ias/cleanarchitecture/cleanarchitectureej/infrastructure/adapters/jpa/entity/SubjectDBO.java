@@ -32,7 +32,7 @@ public class SubjectDBO {
 		);
 	}
 
-	public  Subject subjectDBOToDomain (SubjectDBO subjectDBO){
+	public static Subject subjectDBOToDomain(SubjectDBO subjectDBO){
 		return  new Subject(
 				new SubjectId(subjectDBO.getId()),
 				new SubjectName(subjectDBO.getName())

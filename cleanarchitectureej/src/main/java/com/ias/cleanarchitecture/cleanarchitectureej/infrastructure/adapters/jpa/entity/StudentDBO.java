@@ -37,7 +37,7 @@ public class StudentDBO {
 				);
 	}
 
-	public Student studentDBOToDomain(StudentDBO studentDBO){
+	public static Student studentDBOToDomain(StudentDBO studentDBO){
 		return new Student(
 				new StudentId(studentDBO.getId()),
 				new StudentName(studentDBO.getName()),

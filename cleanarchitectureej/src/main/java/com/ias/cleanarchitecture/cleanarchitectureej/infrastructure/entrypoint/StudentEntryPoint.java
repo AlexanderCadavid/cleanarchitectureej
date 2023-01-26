@@ -25,12 +25,13 @@ public class StudentEntryPoint {
 	}
 
 	@GetMapping("/{id}")
-	public StudentDTO findById(@PathVariable Long id) {
-		return ResponseEntity.ok().body(studentUseCase.findById(id)).getBody();
+	public ResponseEntity<?> getById(@PathVariable(name = "id") Long id) {
+		StudentDTO student = studentUseCase.getById(id);
+		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
 
 	@GetMapping("/list")
-	public ResponseEntity<?> getStudents() {
+	public ResponseEntity<?> getALL() {
 		List<StudentDTO> studentDTOS = new ArrayList<>() {
 		};
 		if(studentDTOS.isEmpty()){

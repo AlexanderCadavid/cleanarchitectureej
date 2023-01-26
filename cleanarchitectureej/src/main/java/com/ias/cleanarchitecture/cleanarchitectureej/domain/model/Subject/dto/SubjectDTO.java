@@ -13,6 +13,9 @@ public class SubjectDTO {
 		this.id = id;
 		this.name = name;
 	}
+	public SubjectDTO(){
+
+	}
 
 	public Long getId() {
 		return id;
